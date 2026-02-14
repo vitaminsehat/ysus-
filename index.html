@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avrilian Putri • 50 bab cinta + lagu romantis</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', 'Dancing Script', cursive, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ffb3d0, #ff8eb5, #ffb6d9);
+            background-size: 400% 400%;
+            animation: gradientFlow 20s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Falling hearts animation */
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.8rem;
+            color: rgba(255, 90, 140, 0.5);
+            animation: fall 10s linear infinite;
+            user-select: none;
+            text-shadow: 0 0 15px #ffacc7;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-20vh) rotate(0deg); opacity: 1; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* floating sparkles */
+        .sparkle {
+            position: fixed;
+            color: rgba(255, 255, 200, 0.6);
+            font-size: 1.3rem;
+            pointer-events: none;
+            z-index: 6;
+            animation: sparkleFloat 7s infinite alternate;
+        }
+
+        @keyframes sparkleFloat {
+            from { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            to { transform: translate(25px, -30px) scale(1.8); opacity: 1; }
+        }
+
+        /* main card */
+        .card-master {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 240, 252, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 80px 80px 80px 80px;
+            box-shadow: 0 40px 70px rgba(230, 30, 100, 0.5), 0 0 0 8px #fff0f8, 0 0 0 16px #ffb8d6;
+            border: 3px solid white;
+            padding: 40px 35px 50px;
+            position: relative;
+            z-index: 30;
+            animation: cardPulse 4s infinite alternate;
+        }
+
+        @keyframes cardPulse {
+            0% { box-shadow: 0 40px 70px rgba(230, 30, 100, 0.5), 0 0 0 8px #fff0f8, 0 0 0 16px #ffb8d6; }
+            100% { box-shadow: 0 50px 90px #ff3070, 0 0 0 12px #ffeef5, 0 0 0 22px #ff9fc7; }
+        }
+
+        /* nama dengan animasi glow */
+        .glow-name {
+            text-align: center;
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: #a02253;
+            text-shadow: 0 0 8px #ffd5e7, 0 0 18px #ff80b0, 4px 6px 0 #ffb7cf;
+            letter-spacing: 3px;
+            animation: nameGlow 2.5s infinite alternate;
+            word-break: break-word;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        @keyframes nameGlow {
+            from { text-shadow: 0 0 8px #ffc2de, 0 0 18px #ff80b0, 4px 6px 0 #ffb7cf; }
+            to { text-shadow: 0 0 18px #ffadcf, 0 0 45px #ff4d88, 6px 8px 0 #ff8eb5; }
+        }
+
+        .sub-romantic {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #bd2d66;
+            border-bottom: 4px dashed #ffb0d1;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            animation: fadeSlide 2.5s;
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* foto couple dengan animasi */
+        .photo-love {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            margin: 30px 0 40px;
+        }
+
+        .polaroid {
+            flex: 1 1 250px;
+            max-width: 300px;
+            background: #ffdfef;
+            border-radius: 150px 150px 60px 60px;
+            padding: 18px 18px 25px 18px;
+            box-shadow: 0 30px 35px -8px #e63973, 0 0 0 6px white, 0 0 0 12px #ffb1cf;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: floatPhoto 6s infinite alternate;
+        }
+
+        .polaroid:nth-child(1) { animation-delay: 0.3s; }
+        .polaroid:nth-child(2) { animation-delay: 0.8s; }
+
+        @keyframes floatPhoto {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-18px) rotate(2.5deg); }
+        }
+
+        .polaroid:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 45px 50px -5px #d43370, 0 0 0 10px white, 0 0 0 20px #ff9fcb;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 140px 140px 40px 40px;
+            border: 6px solid #fff5fc;
+            background: #ffb8cf;
+            display: block;
+        }
+
+        .photo-label {
+            text-align: center;
+            background: #ffdff2;
+            margin-top: 20px;
+            padding: 12px 18px;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a22055;
+            border: 3px solid white;
+            box-shadow: 0 5px 0 #ff87b3;
+        }
+
+        /* Music Player (Audio Only) */
+        .music-player {
+            background: rgba(255, 240, 250, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 80px;
+            padding: 20px 35px;
+            margin: 20px 0 30px;
+            border: 5px solid white;
+            box-shadow: 0 15px 25px #ff80aa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .music-info i {
+            font-size: 3rem;
+            color: #ff4076;
+            animation: musicPulse 2s infinite;
+        }
+
+        @keyframes musicPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .music-info h4 {
+            font-size: 1.8rem;
+            color: #a12255;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .audio-player {
+            width: 300px;
+            height: 50px;
+            border-radius: 50px;
+            background: #ffd5ea;
+            border: 3px solid white;
+        }
+
+        .audio-player::-webkit-media-controls-panel {
+            background: #ffd5ea;
+            border-radius: 50px;
+        }
+
+        .audio-player::-webkit-media-controls-play-button {
+            background-color: #ff82b2;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .audio-player::-webkit-media-controls-current-time-display,
+        .audio-player::-webkit-media-controls-time-remaining-display {
+            color: #a12255;
+            font-weight: bold;
+        }
+
+        .audio-player::-webkit-media-controls-volume-slider {
+            background-color: #ff82b2;
+            border-radius: 25px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .audio-player::-webkit-media-controls-timeline {
+            background-color: #ff82b2;
+            border-radius: 25px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        /* LONG TEXT ROMANTIS LDR — 50 BAB */
+        .letter-epic {
+            background: rgba(255, 240, 250, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 80px 80px 80px 80px;
+            padding: 40px 40px;
+            margin: 40px 0 35px;
+            border: 5px solid white;
+            box-shadow: inset 0 0 40px #ffbfda, 0 25px 40px #ff80aa;
+            animation: slideInLetter 1.5s ease-out;
+        }
+
+        @keyframes slideInLetter {
+            from { opacity: 0; transform: scale(0.9) translateY(50px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .letter-epic h3 {
+            font-size: 3rem;
+            color: #bd2a63;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-left: 18px solid #ff679a;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .scroll-long {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 20px;
+            font-size: 1.35rem;
+            line-height: 2;
+            color: #511c38;
+            text-align: left;
+            scrollbar-width: thin;
+            scrollbar-color: #ff77a4 #ffe3f0;
+        }
+
+        .scroll-long::-webkit-scrollbar {
+            width: 10px;
+        }
+        .scroll-long::-webkit-scrollbar-track {
+            background: #ffe3f0;
+            border-radius: 25px;
+        }
+        .scroll-long::-webkit-scrollbar-thumb {
+            background: #ff77a4;
+            border-radius: 25px;
+            border: 3px solid #ffc2da;
+        }
+
+        .scroll-long p {
+            margin-bottom: 28px;
+        }
+
+        .scroll-long i {
+            color: #d43b75;
+        }
+
+        /* BUTTON SUPER CUTE */
+        .action-duo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 45px;
+            justify-content: center;
+            margin: 35px 0 25px;
+        }
+
+        .magic-btn {
+            border: none;
+            background: linear-gradient(145deg, #ff82b2, #ff4076);
+            color: white;
+            font-weight: 800;
+            font-size: 1.8rem;
+            padding: 25px 55px;
+            border-radius: 100px;
+            box-shadow: 0 18px 0 #941f4b, 0 30px 40px #ff6d9f;
+            cursor: pointer;
+            transition: 0.15s linear, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 22px;
+            border: 5px solid #fffafe;
+            letter-spacing: 2px;
+            animation: btnWobble 3.5s infinite;
+        }
+
+        @keyframes btnWobble {
+            0%,100% { transform: rotate(0deg); }
+            5% { transform: rotate(3deg); }
+            10% { transform: rotate(-3deg); }
+            15% { transform: rotate(2deg); }
+            20% { transform: rotate(-2deg); }
+            25% { transform: rotate(0deg); }
+        }
+
+        .magic-btn:active {
+            transform: translateY(15px);
+            box-shadow: 0 5px 0 #721a3c, 0 25px 35px #ff5b91;
+        }
+
+        .magic-btn i {
+            font-size: 3rem;
+            animation: ringBell 2.5s infinite;
+        }
+
+        @keyframes ringBell {
+            0% { transform: rotate(0); }
+            10% { transform: rotate(20deg); }
+            20% { transform: rotate(-20deg); }
+            30% { transform: rotate(12deg); }
+            40% { transform: rotate(-8deg); }
+            50% { transform: rotate(0); }
+        }
+
+        /* POPUP MEGA ROMANTIS */
+        .popup-super {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 180, 210, 0.6);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .popup-super.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup-card {
+            max-width: 700px;
+            width: 90%;
+            background: #fff0fb;
+            border-radius: 150px 150px 100px 100px;
+            padding: 55px 35px 45px;
+            text-align: center;
+            box-shadow: 0 60px 70px #e53d7b, 0 0 0 20px #ffe7f2, 0 0 0 32px #ffb2d1;
+            border: 8px solid white;
+            transform: scale(0.3) rotate(-15deg);
+            transition: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .popup-super.show .popup-card {
+            transform: scale(1) rotate(0deg);
+        }
+
+        .popup-card h2 {
+            font-size: 3.8rem;
+            color: #b2225a;
+            text-shadow: 5px 5px 0 #ffb7d7;
+            margin: 15px 0;
+        }
+
+        .popup-big-message {
+            background: #ffd5ea;
+            border-radius: 120px;
+            padding: 40px 20px;
+            font-size: 2.5rem;
+            color: #7a1c48;
+            border: 5px solid white;
+            margin: 25px 0;
+            font-weight: 700;
+            animation: glowMessage 2.5s infinite alternate;
+        }
+
+        @keyframes glowMessage {
+            from { box-shadow: 0 0 15px #ffb0d0; }
+            to { box-shadow: 0 0 45px #ff6f9f; }
+        }
+
+        .btn-popup-close {
+            background: #ffa9cd;
+            border: none;
+            padding: 18px 55px;
+            border-radius: 100px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #671f45;
+            border: 5px solid white;
+            box-shadow: 0 8px 0 #932959;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .btn-popup-close:active {
+            transform: translateY(12px);
+            box-shadow: 0 0 0 #932959;
+        }
+
+        /* NOTIFICATION SUPER SWEET */
+        .toast-deluxe {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            background: #ffd5ec;
+            backdrop-filter: blur(30px);
+            color: #771f4b;
+            padding: 30px 60px;
+            border-radius: 150px;
+            font-size: 2.2rem;
+            font-weight: 800;
+            box-shadow: 0 18px 0 #b22d64, 0 35px 50px #ff6799;
+            border: 6px solid white;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            z-index: 1100;
+            transform: translateX(150%) scale(0.5);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 90vw;
+        }
+
+        .toast-deluxe.show {
+            transform: translateX(0) scale(1);
+        }
+
+        .toast-deluxe i {
+            font-size: 5rem;
+            color: #fff7b0;
+            filter: drop-shadow(0 6px 0 #a72557);
+            animation: heartBeat 1.5s infinite;
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.4); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        /* footer */
+        .footer-swirl {
+            margin-top: 35px;
+            font-size: 1.8rem;
+            color: #b83b6b;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            border-top: 6px dotted #ffa9cf;
+            padding-top: 30px;
+            font-weight: 600;
+            animation: footerFade 2.5s;
+        }
+
+        @keyframes footerFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- falling hearts animation (100 butir) -->
+    <div class="falling-hearts" id="heartRain"></div>
+
+    <!-- sparkles kecil -->
+    <div class="sparkle" style="top: 12%; left: 7%;"><i class="fas fa-star"></i></div>
+    <div class="sparkle" style="bottom: 20%; right: 10%;"><i class="fas fa-sparkle"></i></div>
+    <div class="sparkle" style="top: 40%; right: 20%;"><i class="fas fa-plus"></i></div>
+    <div class="sparkle" style="bottom: 30%; left: 15%;"><i class="fas fa-star"></i></div>
+    <div class="sparkle" style="top: 70%; left: 25%;"><i class="fas fa-sparkle"></i></div>
+
+    <div class="card-master">
+        <!-- NAMA AVRILLIAN PUTRI -->
+        <div class="glow-name">
+            <i class="fas fa-heart" style="color: #ff4076;"></i> Avrilian Putri <i class="fas fa-heart" style="color: #ff4076;"></i>
+        </div>
+        <div class="sub-romantic">
+            <i class="fas fa-infinity"></i> 50 bab cinta LDR <i class="fas fa-infinity"></i>
+        </div>
+
+        <!-- FOTO PASANGAN + NAMA -->
+        <div class="photo-love">
+            <div class="polaroid">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Ccircle cx='150' cy='120' r='70' fill='%23ffb7c5'/%3E%3Ccircle cx='110' cy='100' r='14' fill='%23222'/%3E%3Ccircle cx='190' cy='100' r='14' fill='%23222'/%3E%3Cpath d='M110 175 Q150 225,190 175' stroke='%239e2e5b' stroke-width='18' fill='none' stroke-linecap='round' /%3E%3Crect x='75' y='215' width='150' height='60' rx='30' fill='%23ff99bb'/%3E%3Ctext x='120' y='265' fill='white' font-size='50' font-weight='bold'%3E%3C/text%3E%3C/svg%3E" alt="couple avrilian">
+                <div class="photo-label"><i class="fas fa-crown"></i> Avrilian & Fajar <i class="fas fa-crown"></i></div>
+            </div>
+            <div class="polaroid">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23ffc1d6'/%3E%3Ccircle cx='100' cy='120' r='40' fill='%23ffb0c0'/%3E%3Ccircle cx='200' cy='120' r='40' fill='%23ffb0c0'/%3E%3Ccircle cx='85' cy='105' r='7' fill='black'/%3E%3Ccircle cx='215' cy='105' r='7' fill='black'/%3E%3Cpath d='M90 180 Q150 240,210 180' stroke='%23b73d69' stroke-width='14' fill='none' stroke-linecap='round' /%3E%3Ctext x='60' y='260' fill='%23ff4175' font-size='70' font-family='monospace'%3E(%3C/text%3E%3Ctext x='180' y='260' fill='%23ff4175' font-size='70'%3E)%3C/text%3E%3C/svg%3E" alt="couple 2">
+                <div class="photo-label"><i class="fas fa-heart"></i> A.P <i class="fas fa-heart"></i></div>
+            </div>
+        </div>
+
+        <!-- MUSIC PLAYER (AUDIO ONLY) -->
+        <div class="music-player">
+            <div class="music-info">
+                <i class="fas fa-headphones-alt"></i>
+                <h4>Lagu Romantis untuk Avrilian Putri</h4>
+            </div>
+            <audio controls autoplay loop class="audio-player">
+                <source src="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3lJSE1GcTFaMXRHQ2hqUExMVHV0MEthWnVGd3xBQ3Jtc0tuV21hX2Z5NnZ2Wm9mLVhLWE5pWHJ0YzNqNF9EV2g2Z3pFUmhIUnJKZDhHUU5Pcm5aMlRLS1FsczVzS2hoWjhFY3l4WkF1S1JqS0NUSVpDUTlONzZ3YXc5NXB5Y1F5clA3R2prS25rTUpuTl9HaHZBMA&q=https%3A%2F%2Fdw67x5l6h5h3r.cloudfront.net%2Fdownload%2FfGJ7yWp3s8T0Nq-JxMQ%2Fm4a%2F1" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- LONG TEKS ROMANTIS LDR — 50 BAB LENGKAP -->
+        <div class="letter-epic">
+            <h3><i class="fas fa-quote-left"></i> Untuk Avrilian Putri, 50 bab cinta dari hati yang merindukan...</h3>
+            <div class="scroll-long">
+                <p>Avrilian Putri sayang,</p>
+                <p>Selamat malam, atau selamat pagi, atau kapan pun kamu membaca surat ini. Aku menulis ini di tengah malam yang sunyi, ditemani oleh rindu yang tak pernah tidur. Jarak memisahkan kita, tapi tidak dengan hatiku yang selalu bersamamu. Setiap detik, setiap menit, setiap jam, aku memikirkanmu. Senyummu, tawamu, caramu berbicara, semuanya terukir indah dalam ingatanku.</p>
+                
+                <!-- BAB 1-50 (lengkap seperti sebelumnya) -->
+                <p> <strong>BAB 1: RINDU YANG TAK BERSUARA</strong> </p>
+                <p>Avrilian, menjalani hubungan jarak jauh itu tidak mudah. Ada hari-hari di mana aku merasa sangat lelah, bukan karena pekerjaan atau aktivitas, tapi karena rindu yang tak tertahankan. Ada malam-malam di mana aku hanya bisa memandang fotomu sambil berharap kau ada di sampingku. Ada saat-saat di mana aku ingin memelukmu, tapi hanya bantal yang bisa kupeluk. Tapi tahukah kamu, Avrilian? Di balik semua kesulitan itu, aku justru semakin mencintaimu. Jarak ini mengajarkanku arti kesabaran, arti kesetiaan, dan arti perjuangan. Aku belajar bahwa cinta sejati tidak pernah terhalang oleh jarak. Karena ketika hati sudah terpaut, ribuan kilometer pun terasa seperti hanya sejengkal.</p>
+                
+                <p> <strong>BAB 2: PERTEMUAN PERTAMA YANG TAK TERLUPAKAN</strong> </p>
+                <p>Aku masih ingat saat pertama kali kita bertemu, Avrilian. Waktu itu aku tidak pernah menyangka bahwa seseorang yang begitu cantik dan mempesona akan menjadi bagian terpenting dalam hidupku. Matamu yang indah seperti menyimpan ribuan cerita, dan aku ingin menjadi bagian dari setiap cerita itu. Senyummu yang manis mampu membuatku lupa segalanya. Sejak saat itu, aku tahu bahwa aku tidak ingin melepaskanmu. Aku ingin selalu bersamamu, menjagamu, dan mencintaimu selamanya.</p>
+                
+                <p> <strong>BAB 3: PERPISAHAN YANG MENYAKITKAN</strong> </p>
+                <p>Aku masih ingat saat pertama kali kita harus berpisah. Aku mencoba tegar di depanmu, tapi begitu membelakang, air mataku jatuh tanpa bisa kutahan. Aku tidak pernah menyangka bahwa merindukan seseorang bisa sesakit ini. Tapi di saat yang sama, aku juga tidak pernah menyangka bahwa merindukanmu juga bisa seindah ini. Karena setiap rindu adalah pengingat bahwa aku memiliki seseorang yang sangat berarti dalam hidupku. Dan orang itu adalah kamu, Avrilian Putri.</p>
+                
+                <p> <strong>BAB 4: HARI-HARI TANPAMU</strong> </p>
+                <p>Avrilian, aku ingin bercerita tentang hari-hariku tanpamu. Setiap pagi aku bangun, hal pertama yang kulakukan adalah membuka ponsel dan melihat apakah ada pesan darimu. Membaca "selamat pagi" darimu bisa membuat hariku langsung cerah, bahkan sebelum matahari terbit. Dan setiap malam, aku tak bisa tidur sebelum mengucapkan selamat malam padamu. Karena bagiku, hari tidak akan lengkap tanpa mendengar suaramu, meski hanya melalui pesan singkat.</p>
+                
+                <p> <strong>BAB 5: BETAPA BERARTINYA DIRIMU</strong> </p>
+                <p>Tahukah kamu, Avrilian, betapa berartinya dirimu bagiku? Kamu adalah alasan aku tersenyum di tengah hari yang berat. Kamu adalah alasan aku tetap bertahan saat semuanya terasa sulit. Kamu adalah alasan aku percaya bahwa cinta itu nyata. Sebelum bertemu denganmu, aku tidak pernah tahu bahwa seseorang bisa seistimewa ini. Tapi setelah bertemu denganmu, aku tidak bisa membayangkan hidup tanpamu.</p>
+                
+                <p> <strong>BAB 6: RINDU YANG TAK TERUCAPKAN</strong> </p>
+                <p>Avrilian, aku rindu. Rindu sekali. Aku rindu melihat senyummu langsung, bukan hanya melalui layar ponsel. Aku rindu mendengar tawamu tanpa gangguan sinyal. Aku rindu memegang tanganmu, merasakan hangatnya, bukan hanya membayangkannya. Aku rindu memelukmu, merasakan detak jantungmu, bukan hanya mendengar suaramu berkata "aku rindu" dari jauh.</p>
+                
+                <p> <strong>BAB 7: UJIAN UNTUK KITA</strong> </p>
+                <p>Tapi aku tahu, Avrilian, ini adalah bagian dari perjalanan kita. Ini adalah ujian yang harus kita lewati bersama. Dan aku percaya, setelah ini, kita akan menjadi lebih kuat. Kita akan belajar untuk lebih menghargai setiap momen bersama. Kita tidak akan pernah menyia-nyiakan waktu yang kita miliki. Karena kita tahu bagaimana rasanya kehilangan, bagaimana rasanya merindukan, bagaimana rasanya berjuang untuk cinta.</p>
+                
+                <p> <strong>BAB 8: IMPIAN YANG KITA RAJUT</strong> </p>
+                <p>Avrilian, ada banyak hal yang ingin kulakukan bersamamu suatu hari nanti. Aku ingin kita bisa sarapan bersama di pagi hari, tanpa terburu-buru karena harus segera video call. Aku ingin kita bisa berjalan-jalan di taman, menikmati matahari sore, tanpa khawatir sinyal akan putus. Aku ingin kita bisa menonton film bersama di bioskop, berbagi popcorn dan tawa, tanpa harus mengirimkan reaksi melalui emoji. Aku ingin kita bisa melakukan hal-hal sederhana yang dilakukan pasangan biasa, hal-hal yang selama ini hanya bisa kita impikan.</p>
+                
+                <p> <strong>BAB 9: MEMPERKENALKANMU PADA DUNIAKU</strong> </p>
+                <p>Aku ingin memperkenalkanmu pada semua orang yang berarti dalam hidupku. Aku ingin mereka tahu bahwa inilah dia, Avrilian Putri, wanita yang paling aku cintai. Aku ingin mereka melihat bagaimana matamu berbinar saat bercerita, bagaimana tawamu bisa menular, bagaimana kehadiranmu bisa membuat ruangan terasa lebih hangat. Aku bangga padamu, Avrilian. Bangga memiliki kamu dalam hidupku.</p>
+                
+                <p> <strong>BAB 10: BERTEMU DENGAN ORANG-ORANG TERSAYANGMU</strong> </p>
+                <p>Aku juga ingin bertemu dengan orang-orang yang kamu sayangi. Aku ingin mereka tahu bahwa aku akan selalu menjaga dan melindungimu, bahkan dari jarak ribuan kilometer. Aku ingin mereka percaya bahwa aku adalah orang yang tepat untukmu. Dan aku akan membuktikannya, Avrilian, dengan kesetiaan dan cintaku yang tak pernah goyah.</p>
+                
+                <p> <strong>BAB 11: MENUNGGU WAKTU YANG TEPAT</strong> </p>
+                <p>Avrilian, mungkin saat ini kita hanya bisa bertemu melalui layar. Mungkin saat ini kita hanya bisa berbagi cerita melalui pesan. Mungkin saat ini kita hanya bisa tersenyum melihat foto satu sama lain. Tapi suatu hari nanti, semua ini akan berakhir. Suatu hari nanti, kita akan bangun di samping satu sama lain, tanpa harus khawatir tentang jarak. Suatu hari nanti, kita akan bersama selamanya. Dan saat itu tiba, semua perjuangan ini akan terbayar lunas.</p>
+                
+                <p> <strong>BAB 12: JANJI YANG TAK AKAN INGKAR</strong> </p>
+                <p>Avrilian, aku ingin berjanji padamu. Aku berjanji akan selalu setia, meski godaan datang silih berganti. Aku berjanji akan selalu percaya padamu, meski kita tidak bisa saling mengawasi. Aku berjanji akan selalu mendukungmu, meski aku tidak bisa hadir secara fisik. Aku berjanji akan selalu menjadi yang terbaik untukmu, meski jarak memisahkan. Dan yang terpenting, aku berjanji akan selalu mencintaimu, hari ini, esok, dan selamanya.</p>
+                
+                <p> <strong>BAB 13: JANJI DARI LUBUK HATI</strong> </p>
+                <p>Janji ini bukan janji sembarangan, Avrilian. Ini adalah janji yang lahir dari lubuk hatiku yang paling dalam. Ini adalah janji yang akan aku pertahankan sepanjang hidupku. Aku tidak tahu apa yang akan terjadi di masa depan. Aku tidak tahu apakah kita akan diuji dengan cobaan yang lebih berat. Tapi satu hal yang aku tahu pasti: aku tidak akan pernah menyerah padamu. Aku akan terus berjuang untuk kita, untuk cinta ini, untuk masa depan yang kita impikan bersama.</p>
+                
+                <p> <strong>BAB 14: TAKDIR YANG MEMPERTEMUKAN KITA</strong> </p>
+                <p>Avrilian, kadang aku merasa tidak pantas mendapatkan cinta seindah ini. Kadang aku bertanya-tanya, apa yang kulakukan hingga Tuhan mempertemukanku denganmu? Mungkin ini adalah hadiah atas semua doa yang tak pernah putus kupanjatkan. Mungkin ini adalah jawaban atas semua harapan yang hampir pupus. Atau mungkin, ini adalah takdir yang sudah ditulis sejak lama. Bahwa kita, Avrilian Putri dan aku, ditakdirkan untuk bersama.</p>
+                
+                <p> <strong>BAB 15: TERIMA KASIH TELAH HADIR</strong> </p>
+                <p>Terima kasih, Avrilian. Terima kasih telah hadir dalam hidupku. Terima kasih telah memilihku di antara jutaan orang di dunia ini. Terima kasih telah bertahan, meski jarak sering membuatmu lelah. Terima kasih telah mencintaiku, meski aku jauh di sana. Aku tidak akan pernah bisa membalas semua kebaikanmu. Tapi aku akan menghabiskan sisa hidupku untuk mencoba. Untuk membuatmu bahagia. Untuk membuatmu tersenyum. Untuk membuatmu merasa dicintai, setiap hari, sepanjang waktu.</p>
+                
+                <p> <strong>BAB 16: RINDU YANG SEMAKIN BERTAMBAH</strong> </p>
+                <p>Avrilian, hari ini aku merindukanmu lebih dari kemarin. Tapi aku tahu, besok aku akan merindukanmu lebih dari hari ini. Rindu ini tidak pernah berkurang, Avrilian. Justru semakin bertambah seiring waktu. Seperti sungai yang mengalir ke lautan, seperti ombak yang terus menghantam pantai, seperti angin yang tak pernah berhenti berhembus. Begitulah rinduku padamu. Tak pernah berhenti, tak pernah padam, tak pernah usai.</p>
+                
+                <p> <strong>BAB 17: MASA DEPAN YANG KITA IMPIKAN</strong> </p>
+                <p>Aku suka membayangkan masa depan kita bersama. Aku membayangkan kita duduk di teras rumah, menikmati secangkir teh hangat di sore hari. Aku membayangkan kita memasak bersama di dapur, berantakan tapi bahagia. Aku membayangkan kita berdebat tentang hal-hal kecil, lalu tertawa bersama setelahnya. Aku membayangkan kita menua bersama, dengan rambut yang memutih dan kulit yang berkerut, tapi cinta yang tetap sama seperti dulu, bahkan lebih dalam.</p>
+                
+                <p> <strong>BAB 18: ANAK-ANAK KELAK</strong> </p>
+                <p>Aku membayangkan kita memiliki anak-anak yang lucu, dengan senyummu dan mataku. Aku membayangkan kita mengantar mereka sekolah, mengajari mereka mengaji, melihat mereka tumbuh dan menemukan cinta mereka sendiri. Aku membayangkan kita menjadi kakek dan nenek yang manis, yang masih suka bergandengan tangan meski sudah renta. Aku membayangkan semua itu, Avrilian, dan aku tidak sabar untuk mewujudkannya.</p>
+                
+                <p> <strong>BAB 19: MELEWATI BADAI BERSAMA</strong> </p>
+                <p>Tapi untuk mewujudkan semua itu, kita harus melewati masa-masa sulit ini dulu. Kita harus sabar menunggu waktu yang tepat. Kita harus terus berjuang, terus percaya, terus berdoa. Dan aku yakin, Avrilian, kita bisa melewati ini semua. Karena cinta kita lebih besar dari jarak. Karena cinta kita lebih kuat dari rindu. Karena cinta kita adalah cinta sejati, yang tidak akan pernah terkalahkan oleh apapun.</p>
+                
+                <p> <strong>BAB 20: PESAN-PESAN YANG KUSIMPAN</strong> </p>
+                <p>Avrilian, tahukah kamu bahwa aku selalu menyimpan setiap pesan darimu? Aku bahkan mengambil screenshot setiap kata-kata manismu, setiap doa dan harapanmu untuk kita. Aku menyimpannya di folder khusus, yang aku beri nama "Avrilian Putri - Alasan Aku Tersenyum". Setiap kali aku merasa lelah, setiap kali rindu terasa tak tertahankan, aku membuka folder itu dan membaca semua pesanmu. Dan tiba-tiba, semua rasa lelah itu hilang. Tergantikan oleh rasa syukur karena memiliki kamu.</p>
+                
+                <p> <strong>BAB 21: FOTO YANG MENEMANIMU</strong> </p>
+                <p>Aku juga selalu melihat fotomu sebelum tidur. Foto di mana kamu tersenyum lebar, dengan mata yang berbinar. Foto itu selalu berhasil membuatku tersenyum, meski hatiku sedang sedih. Foto itu selalu berhasil membuatku tenang, meski pikiranku sedang kacau. Foto itu selalu berhasil membuatku percaya bahwa semua akan baik-baik saja, karena aku punya kamu, Avrilian Putri.</p>
+                
+                <p> <strong>BAB 22: KAMU ADALAH KEKUATANKU</strong> </p>
+                <p>Avrilian, aku ingin kamu tahu bahwa kamu adalah kekuatanku. Saat aku lemah, kamu yang membuatku bangkit. Saat aku ragu, kamu yang membuatku yakin. Saat aku takut, kamu yang membuatku berani. Kamu adalah inspirasiku untuk menjadi lebih baik setiap hari. Aku ingin menjadi versi terbaik dari diriku, pantas untuk dicintai oleh seseorang sepertimu.</p>
+                
+                <p> <strong>BAB 23: AKU TAK SEMPURNA</strong> </p>
+                <p>Mungkin aku tidak sempurna, Avrilian. Mungkin aku sering melakukan kesalahan. Mungkin aku sering membuatmu kecewa. Tapi percayalah, aku selalu berusaha memperbaiki diri. Aku selalu berusaha menjadi yang terbaik untukmu. Karena kamu pantas mendapatkan yang terbaik. Kamu pantas mendapatkan seseorang yang akan selalu berusaha, selalu berjuang, selalu mencintaimu dengan segenap hati. Dan aku ingin menjadi orang itu, Avrilian. Aku ingin menjadi orang yang akan selalu membuatmu bahagia.</p>
+                
+                <p> <strong>BAB 24: SAAT KITA BERTEMU NANTI</strong> </p>
+                <p>Avrilian, aku sudah membayangkan saat pertama kali kita bertemu nanti. Aku akan berlari ke arahmu, melupakan semua orang di sekitar, dan langsung memelukmu erat-erat. Aku akan memelukmu sangat lama, karena aku sudah terlalu lama merindukan pelukanmu. Aku mungkin akan menangis, tapi itu adalah tangis kebahagiaan. Tangis karena akhirnya setelah sekian lama, kita bisa bersama.</p>
+                
+                <p> <strong>BAB 25: MENATAP MATAMU LAGI</strong> </p>
+                <p>Aku akan menatap matamu lama-lama, melihat apakah masih sama seperti yang aku ingat. Dan aku yakin, matamu akan tetap indah, bahkan lebih indah dari yang aku ingat. Aku akan mengusap rambutmu, mengecup keningmu, dan berbisik di telingamu, "Akhirnya... aku pulang." Karena bersamamu, aku selalu merasa pulang, di mana pun kita berada.</p>
+                
+                <p> <strong>BAB 26: HAL-HAL SEDERHANA</strong> </p>
+                <p>Kita akan menghabiskan waktu bersama melakukan hal-hal sederhana. Mungkin kita hanya duduk di kafe, minum kopi, dan bercerita tentang semua yang sudah kita lewati selama berpisah. Atau mungkin kita akan berjalan-jalan di mall, bergandengan tangan, dan merasa bahagia hanya karena bisa bersama. Tidak perlu tempat mewah, tidak perlu acara besar. Cukup bersama, itu sudah lebih dari cukup.</p>
+                
+                <p> <strong>BAB 27: MENGHITUNG MUNDUR</strong> </p>
+                <p>Aku sudah tidak sabar untuk bertemu denganmu, Avrilian. Setiap hari aku menghitung mundur, berdoa agar waktu cepat berlalu. Tapi di saat yang sama, aku juga ingin menikmati setiap proses ini. Karena setiap hari yang kita lalui adalah bukti bahwa cinta kita kuat. Setiap rindu yang kita rasakan adalah bukti bahwa kita saling memiliki. Setiap air mata yang jatuh adalah bukti bahwa kita benar-benar peduli.</p>
+                
+                <p> <strong>BAB 28: APAKAH KAMU TAHU?</strong> </p>
+                <p>Avrilian, kadang aku berpikir, apakah kamu tahu betapa besar cintaku padamu? Apakah kamu bisa merasakannya meski kita terpisah jarak? Aku berharap kamu bisa. Aku berharap setiap kali kamu merindukanku, kamu tahu bahwa aku juga merindukanmu, bahkan lebih. Aku berharap setiap kali kamu sedih, kamu tahu bahwa aku juga ikut sedih, dan aku akan melakukan apapun untuk membuatmu tersenyum lagi.</p>
+                
+                <p> <strong>BAB 29: CINTA YANG TAK PERNAH LELAH</strong> </p>
+                <p>Cinta ini tidak pernah letih, Avrilian. Meski jarak sering membuat frustrasi, meski rindu sering membuat sakit, cinta ini tidak pernah goyah. Ia tetap kokoh, tetap kuat, tetap menyala seperti api yang tak pernah padam. Karena cinta ini bukan cinta biasa. Ini adalah cinta yang lahir dari hati yang paling dalam, cinta yang tulus, cinta yang sejati.</p>
+                
+                <p> <strong>BAB 30: JAWABAN DOA</strong> </p>
+                <p>Aku percaya bahwa Tuhan mempertemukan kita karena suatu alasan. Mungkin kita ditakdirkan untuk bersama, untuk saling melengkapi, untuk saling menguatkan. Mungkin kita adalah jawaban dari doa masing-masing. Dan aku bersyukur, sangat bersyukur, bahwa doaku dijawab dengan kehadiranmu, Avrilian Putri.</p>
+                
+                <p> <strong>BAB 31: JANGAN PERNAH RAGU</strong> </p>
+                <p>Jangan pernah ragu dengan cintaku, Avrilian. Jangan pernah berpikir bahwa aku akan menyerah. Karena aku tidak akan pernah menyerah. Aku akan terus berjuang, terus berusaha, terus mencintaimu, sampai kapan pun. Sampai akhir hayatku, sampai napas terakhirku, cintaku padamu akan tetap sama. Abadi, selamanya.</p>
+                
+                <p> <strong>BAB 32: RIBUAN ALASAN</strong> </p>
+                <p>Avrilian, jika ditanya mengapa aku mencintaimu, mungkin aku tidak bisa menjawab dengan satu alasan. Karena ada ribuan alasan mengapa aku mencintaimu. Aku mencintaimu karena senyummu yang bisa menghangatkan hati. Aku mencintaimu karena tawamu yang menular. Aku mencintaimu karena matamu yang indah. Aku mencintaimu karena caramu berbicara, caramu bergerak, caramu memperlakukan orang lain.</p>
+                
+                <p> <strong>BAB 33: KETULUSAN HATIMU</strong> </p>
+                <p>Aku mencintaimu karena kamu baik, karena kamu tulus, karena kamu tidak pernah berpura-pura. Aku mencintaimu karena kamu kuat, meski kadang kamu merasa lemah. Aku mencintaimu karena kamu tidak pernah menyerah, meski hidup sering tidak adil padamu. Aku mencintaimu karena kamu adalah kamu, apa adanya, tanpa perlu berubah.</p>
+                
+                <p> <strong>BAB 34: MOTIVASIKU</strong> </p>
+                <p>Aku mencintaimu karena kamu membuatku ingin menjadi lebih baik. Kamu membuatku ingin bangun pagi, ingin bekerja keras, ingin meraih mimpi. Bukan untuk diriku sendiri, tapi untuk kita. Untuk masa depan kita bersama. Kamu adalah motivasiku, inspirasiku, semangatku.</p>
+                
+                <p> <strong>BAB 35: PERASAAN SAAT BERSAMAMU</strong> </p>
+                <p>Aku mencintaimu, Avrilian, bukan karena siapa dirimu, tapi karena bagaimana perasaanku saat bersamamu. Dan meski kita tidak bisa bersama secara fisik saat ini, perasaan itu tetap sama. Kamu tetap membuatku merasa istimewa, merasa dicintai, merasa berharga. Dan aku berharap, aku juga bisa membuatmu merasakan hal yang sama.</p>
+                
+                <p> <strong>BAB 36: DOA MALAM UNTUKMU</strong> </p>
+                <p>Setiap malam, sebelum tidur, aku selalu berdoa untukmu. Aku berdoa agar kamu selalu dalam lindungan Tuhan, di mana pun kamu berada. Aku berdoa agar kamu selalu sehat, selalu bahagia, selalu tersenyum. Aku berdoa agar semua impianmu tercapai, agar semua usahamu berhasil, agar hidupmu dipenuhi dengan hal-hal baik.</p>
+                
+                <p> <strong>BAB 37: DOA UNTUK KITA</strong> </p>
+                <p>Aku juga berdoa untuk kita. Aku berdoa agar Tuhan meridhoi hubungan kita. Agar Tuhan memudahkan semua urusan kita. Agar Tuhan mempertemukan kita kembali, secepatnya, dan selamanya. Aku berdoa agar cinta ini tetap abadi, tetap kuat, tetap menyala, sampai kapan pun.</p>
+                
+                <p> <strong>BAB 38: KEYAKINAN DALAM DOA</strong> </p>
+                <p>Aku percaya doa itu sampai, Avrilian. Aku percaya Tuhan mendengar setiap doa yang kupanjatkan. Dan aku percaya, suatu saat nanti, semua doa itu akan dijawab. Kita akan bersama, bahagia, seperti yang selalu kita impikan. Aku tidak sabar untuk saat itu.</p>
+                
+                <p> <strong>BAB 39: KAMU ADALAH SEGALANYA</strong> </p>
+                <p>Sampai saat itu tiba, aku akan terus berdoa. Aku akan terus berusaha. Aku akan terus mencintaimu, Avrilian Putri. Karena kamu adalah segalanya bagiku. Kamu adalah masa depanku, mimpiku, harapanku. Kamu adalah cinta sejatiku.</p>
+                
+                <p> <strong>BAB 40: SURAT YANG SANGAT PANJANG</strong> </p>
+                <p>Avrilian, mungkin surat ini sudah sangat panjang. Mungkin matamu sudah lelah membacanya. Tapi percayalah, ini hanya sebagian kecil dari apa yang ingin aku katakan padamu. Masih ada ribuan kata, jutaan kalimat, milyaran ungkapan yang ingin aku sampaikan. Tapi tidak mungkin aku tulis semuanya di sini, karena tidak akan cukup kertasnya, tidak akan cukup waktunya.</p>
+                
+                <p> <strong>BAB 41: YANG PALING PENTING</strong> </p>
+                <p>Yang ingin aku katakan sederhana, Avrilian. Aku mencintaimu. Aku selalu mencintaimu. Aku akan selalu mencintaimu. Tidak peduli seberapa jauh jarak kita, tidak peduli seberapa sulit jalan yang harus kita tempuh, aku akan tetap mencintaimu. Karena cintaku padamu bukan cinta biasa. Ini adalah cinta yang abadi, cinta yang tak terkalahkan, cinta yang selamanya.</p>
+                
+                <p> <strong>BAB 42: ANUGERAH TERINDAH</strong> </p>
+                <p>Avrilian Putri, kamu adalah anugerah terindah dalam hidupku. Kamu adalah bintang yang menerangi malam-malam gelapku. Kamu adalah mentari yang menghangatkan hari-hari dinginku. Kamu adalah segalanya. Dan aku berjanji, aku akan menjaga anugerah ini sebaik mungkin. Aku akan menjaga hatimu, menjaga kepercayaanmu, menjaga cintamu. Karena kamu pantas mendapatkan yang terbaik.</p>
+                
+                <p> <strong>BAB 43: SELAMAT MALAM, SAYANG</strong> </p>
+                <p>Selamat malam, Avrilian Putri. Semoga tidurmu nyenyak, semoga mimpimu indah, semoga kamu selalu bahagia. Besok, ketika kamu bangun, ingatlah bahwa ada seseorang di sini yang sangat mencintaimu. Seseorang yang tidak sabar untuk segera bertemu denganmu. Seseorang yang akan selalu menunggumu, di mana pun, kapan pun, selamanya. Dan orang itu adalah aku.</p>
+                
+                <p> <strong>BAB 44: PUISI UNTUK AVRILLIAN</strong> </p>
+                <p style="text-align: center; font-style: italic;">
+                Avrilian, dengarlah bisik hati ini<br>
+                Rindu yang tak pernah mati<br>
+                Meski jarak membentang negeri<br>
+                Cintaku tetap abadi<br><br>
+                
+                Matamu bagai bintang malam<br>
+                Terangi setiap malam kelam<br>
+                Senyummu bagai mentari pagi<br>
+                Hangatkan hati yang sepi<br><br>
+                
+                Beribu kata tak cukup<br>
+                Untuk ungkapkan cinta yang utuh<br>
+                Berjuta puisi tak mampu<br>
+                Lukiskan indahnya dirimu<br><br>
+                
+                Avrilian, percayalah padaku<br>
+                Akan selalu ada untukmu<br>
+                Sampai akhir waktu menjemputku<br>
+                Aku tetap milikmu<br>
+                </p>
+                
+                <p> <strong>BAB 45: SELALU ADA DI PIKIRANKU</strong> </p>
+                <p>Avrilian, aku ingin kamu tahu bahwa aku selalu berpikir tentangmu. Saat aku bekerja, saat aku makan, saat aku tidur, bahkan saat aku bermimpi. Kamu selalu ada di pikiranku. Kamu adalah orang pertama yang aku pikirkan saat bangun tidur, dan orang terakhir yang aku pikirkan sebelum tidur. Kamu adalah bagian dari keseharianku, bagian dari hidupku.</p>
+                
+                <p> <strong>BAB 46: RINDU MASA LALU</strong> </p>
+                <p>Aku rindu saat-saat kita bisa bercanda bersama, saling meledek, saling membuat tertawa. Aku rindu saat-saat kita berbagi cerita, berbagi mimpi, berbagi harapan. Aku rindu saat-saat kita diam bersama, tanpa bicara, tapi tetap merasa nyaman. Semua momen itu sangat berharga bagiku, dan aku tidak sabar untuk menciptakan momen-momen baru bersamamu.</p>
+                
+                <p> <strong>BAB 47: JANGAN PERNAH MERASA SENDIRI</strong> </p>
+                <p>Avrilian, jangan pernah merasa sendiri. Meski aku jauh di sana, aku selalu bersamamu. Di setiap langkahmu, di setiap napasmu, di setiap detak jantungmu, aku ada di sana. Karena hatiku selalu bersamamu, tidak peduli seberapa jauh jarak memisahkan kita. Aku selalu ada untukmu, selalu mendukungmu, selalu mencintaimu.</p>
+                
+                <p> <strong>BAB 48: SELALU ADA UNTUKMU</strong> </p>
+                <p>Jangan pernah ragu untuk menghubungiku, kapan pun, di mana pun. Jika kamu sedih, ceritalah padaku. Jika kamu marah, luapkanlah padaku. Jika kamu bahagia, bagikanlah denganku. Aku akan selalu mendengarkan, selalu ada, selalu siap untukmu. Karena kamu adalah prioritas utamaku, Avrilian. Kamu adalah yang terpenting dalam hidupku.</p>
+                
+                <p> <strong>BAB 49: MASA DEPAN YANG TIDAK PASTI</strong> </p>
+                <p>Aku tidak tahu apa yang akan terjadi di masa depan. Tapi satu hal yang aku tahu pasti, aku ingin melewati masa depan itu bersamamu. Aku ingin kita tumbuh bersama, belajar bersama, menjadi tua bersama. Aku ingin kita saling mendukung, saling menguatkan, saling mencintai, sampai akhir hayat. Itu adalah impian terbesarku, Avrilian. Dan aku akan berusaha sekuat tenaga untuk mewujudkannya.</p>
+                
+                <p> <strong>BAB 50: CINTA YANG TAK BERAKHIR</strong> </p>
+                <p>Avrilian Putri, jika surat ini adalah buku, mungkin sudah ribuan halaman. Jika surat ini adalah lautan, mungkin sudah beribu-ribu kilometer. Tapi percayalah, ini masih belum cukup untuk menggambarkan betapa besar cintaku padamu. Cintaku padamu seluas langit, sedalam samudra, setinggi gunung. Cintaku padamu tak terbatas, tak terukur, tak terhingga.</p>
+                <p>Aku berharap suatu hari nanti, kita bisa membaca surat ini bersama, tertawa mengingat masa-masa sulit yang kita lewati. Aku berharap suatu hari nanti, kita bisa bercerita pada anak cucu kita tentang bagaimana kita berjuang untuk cinta ini. Aku berharap suatu hari nanti, kita bisa tersenyum dan berkata, "Kita berhasil. Kita melewati semua ini bersama."</p>
+                <p>Sampai saat itu tiba, aku akan terus menulis surat untukmu, terus merindukanmu, terus mencintaimu. Karena kamu adalah segalanya bagiku. Kamu adalah Avrilian Putri, wanita yang paling aku cintai di dunia ini. Dan tidak ada yang bisa mengubah itu. Tidak ada.</p>
+                <p>Aku mencintaimu, Avrilian Putri. Selamanya.</p>
+                
+                <p style="text-align: right;"><i>Dengan cinta yang tak terbatas,<br>— Untuk Avrilian Putri, satu-satunya</i></p>
+                
+                <p style="text-align: center;"> <strong>MASIH ADA SAMBUNGANNYA... KARENA 50 BAB INI HANYA AWAL DARI CINTA YANG TAK TERBATAS</strong> </p>
+                
+                <p>PS: Avrilian, aku lupa bilang. Aku sayang kamu. Aku sayang banget. Aku sayang banget banget. Aku sayang kamu lebih dari apapun di dunia ini. Jangan pernah lupa itu, ya. Jangan pernah ragu dengan cintaku. Karena aku akan selalu, selalu, selalu mencintaimu. Sampai kapan pun. Sampai akhir waktu. Selamanya.</p>
+            </div>
+        </div>
+
+        <!-- BUTTON DENGAN ANIMASI EXTRA -->
+        <div class="action-duo">
+            <button class="magic-btn" id="magicPopupBtn"><i class="fas fa-envelope-open-text"></i> Popup kejutan</button>
+            <button class="magic-btn" id="magicNotifBtn"><i class="fas fa-bell"></i> Notifikasi cinta</button>
+        </div>
+
+        <!-- footer dengan nama lagi -->
+        <div class="footer-swirl">
+            <i class="fas fa-heart-pulse"></i> Avrilian Putri · 50 bab cinta · forever and ever <i class="fas fa-heart-pulse"></i>
+        </div>
+    </div>
+
+    <!-- POPUP ROMANTIS BANGET -->
+    <div class="popup-super" id="superPopup">
+        <div class="popup-card">
+            <i class="fas fa-heart" style="font-size: 7rem; color:#ff3b74;"></i>
+            <h2>Avrilian Putri</h2>
+            <div class="popup-big-message">
+                You're the reason my heart beats. I love you more than all the stars in the sky. 
+            </div>
+            <p style="font-size: 2.3rem; color:#a12253;">happy valentine day</p>
+            <button class="btn-popup-close" id="closeSuperPopup"><i class="fas fa-heart-circle-check"></i> close</button>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION TOAST SUPER -->
+    <div class="toast-deluxe" id="luxuryToast">
+        <i class="fas fa-heart"></i>
+        <span>Avrilian Putri, you are my today and all of my tomorrows </span>
+    </div>
+
+    <script>
+        (function() {
+            // Generate 100 falling hearts dynamically
+            const heartsContainer = document.getElementById('heartRain');
+            for (let i = 0; i < 100; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (5 + Math.random() * 8) + 's';
+                heart.style.fontSize = (1.2 + Math.random() * 2.8) + 'rem';
+                heart.style.opacity = 0.3 + Math.random() * 0.6;
+                heart.style.animationDelay = (Math.random() * 6) + 's';
+                heartsContainer.appendChild(heart);
+            }
+
+            // POPUP
+            const popup = document.getElementById('superPopup');
+            const openPopupBtn = document.getElementById('magicPopupBtn');
+            const closePopupBtn = document.getElementById('closeSuperPopup');
+
+            openPopupBtn.addEventListener('click', () => {
+                popup.classList.add('show');
+            });
+
+            closePopupBtn.addEventListener('click', () => {
+                popup.classList.remove('show');
+            });
+
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('show');
+                }
+            });
+
+            // NOTIFICATION
+            const notifBtn = document.getElementById('magicNotifBtn');
+            const toast = document.getElementById('luxuryToast');
+            let notifTimeout;
+
+            function showToast() {
+                if (notifTimeout) clearTimeout(notifTimeout);
+                toast.classList.add('show');
+                notifTimeout = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 6000);
+            }
+
+            notifBtn.addEventListener('click', showToast);
+
+            // muncul notif pas load
+            window.addEventListener('load', () => {
+                setTimeout(showToast, 1500);
+            });
+
+            // bisa ditutup dengan klik
+            toast.addEventListener('click', () => {
+                toast.classList.remove('show');
+                if (notifTimeout) clearTimeout(notifTimeout);
+            });
+        })();
+    </script>
+</body>
+</html>
